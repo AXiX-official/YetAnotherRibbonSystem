@@ -6,7 +6,7 @@
 
 
 
-YetAnotherRibbonSystem是一种全新的战斗反馈系统，重新设计了勋带的呈现方式，并且添加了类鬼泣的实时评分系统（娱乐性质）。
+[YetAnotherRibbonSystem](https://github.com/AXiX-official/YetAnotherRibbonSystem)是一种全新的战斗反馈系统，重新设计了勋带的呈现方式，并且添加了类鬼泣的实时评分系统（娱乐性质）。
 
 ---
 
