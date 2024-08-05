@@ -12,6 +12,14 @@
 
 ![preview](doc/image1.png)
 
+## 安装
+
+从[Releases](https://github.com/AXiX-official/YetAnotherRibbonSystem/releases)页面下载最新的`YetAnotherRibbonSystem.zip`，解压到得到`res_mods`文件夹。
+
+导航到游戏安装目录，将`res_mods`文件夹放入其中得到`World of Warships\bin\xxxxxxx\res_mods`这样的路径，其中`xxxxxxx`是`World of Warships\bin\`目录下所有文件夹中数字最大的那个。
+
+如果提示覆盖文件，随意选择。
+
 ## 自定义
 
 ### 勋带
