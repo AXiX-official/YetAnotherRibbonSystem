@@ -1,5 +1,11 @@
 # YetAnotherRibbonSystem
 
+![GitHub License](https://img.shields.io/github/license/AXiX-official/YetAnotherRibbonSystem)
+![Mod Version](https://img.shields.io/github/v/tag/AXiX-official/YetAnotherRibbonSystem?label=Mod%20Version)
+![Game Version](https://img.shields.io/badge/Game%20Version-13.6.0-blue)
+
+
+
 YetAnotherRibbonSystem是一种全新的战斗反馈系统，重新设计了勋带的呈现方式，并且添加了类鬼泣的实时评分系统（娱乐性质）。
 
 ---
