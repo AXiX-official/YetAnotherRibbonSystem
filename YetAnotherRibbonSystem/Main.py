@@ -3,7 +3,7 @@ from Ribbon import Ribbon
 
 API_VERSION = 'API_v1.0'
 MOD_NAME = 'YetAnotherRibbonSystem'
-VERSION = '0.2.3'
+VERSION = '0.2.4'
 
 def flash_log(ModName, msg):
     pass
