@@ -110,38 +110,38 @@ class Ribbon:
     }
 
     _score = {
-        1: 20.0,
+        1: 25.0, # TORPEDO
         # 2: ,
-        3: 1000.0 / 30.0,
-        4: 15.0,
-        5: 200.0,
-        6: 20.0,
-        7: 20.0,
-        8: 50.0,
-        9: 10.0,
-        10: 200.0,
-        11: 100.0,
-        12: 20.0,
-        13: 2.0,
-        14: 1.0,
-        15: 2.0,
-        16: 0.5,
-        17: 0.2,
-        18: 20.0,
-        19: 75.0,
-        20: 2.0,
-        21: 4.0,
-        22: 2.0,
-        23: 1.0,
+        3: 1000.0 / 30.0, # PLANE
+        4: 15.0, # CRIT
+        5: 200.0, # FRAG
+        6: 30.0, # BURN
+        7: 30.0, # FLOOD
+        8: 50.0, # CITADEL
+        9: 10.0, # DEFENSE
+        10: 200.0, # CAPTURE
+        11: 100.0, # CAPTURE_ASSIST
+        12: 20.0, # SUPPRESSED
+        13: 0.8, # SECONDARY_CALIBER
+        14: 1.0, # MAIN_CALIBER_OVER_PENETRATION
+        15: 2.0, # MAIN_CALIBER_PENETRATION
+        16: 0.5, # MAIN_CALIBER_NO_PENETRATION
+        17: 0.2, # MAIN_CALIBER_RICOCHET
+        18: 20.0, # BUILDING_KILL
+        19: 75.0, # DETECTED
+        20: 2.0, # BOMB_OVER_PENETRATION
+        21: 4.0, # BOMB_PENETRATION
+        22: 2.0, # BOMB_NO_PENETRATION
+        23: 1.0, # BOMB_RICOCHET
         # 24: ,
-        25: 4.0,
-        26: 2.0,
-        27: 1000.0 / 30.0,
-        28: 0.2,
-        29: 1.0,
-        30: 1.0,
-        34: 1.0,
-        35: 1.0,
+        25: 4.0, # ROCKET_PENETRATION
+        26: 2.0, # ROCKET_NO_PENETRATION
+        27: 1000.0 / 30.0, # Splane
+        28: 0.2, # BULGE
+        29: 1.0, # BOMB_BULGE
+        30: 1.0, # ROCKET_BULGE
+        34: 1.0, # ROCKET_RICOCHET
+        35: 1.0, # ROCKET_OVER_PENETRATION
     }
 
     def __init__(self, ribbon_id):

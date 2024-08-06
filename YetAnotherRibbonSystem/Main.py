@@ -32,6 +32,7 @@ class YARS:
 
     def cleanRibbons(self, arg):
         flash.call("Clean", [])
+        utils.logInfo('YetAnotherRibbonSystem Score', [self.Score])
 
     def setup_events(self):
         events.onFlashReady(self.on_flash_ready)
@@ -62,7 +63,10 @@ class YARS:
                 earned_score *= 1.2
             victim_level = victim.shipInfo.level
             shooter_level = shooter.shipInfo.level
-            earned_score *= 1.0 + float(victim_level - shooter_level) * 0.1
+            if shooter_level > victim_level:
+                earned_score *= 1.0 - float(shooter_level - victim_level) * 0.1
+            else:
+                earned_score *= 1.0 + float(victim_level - shooter_level) * 0.2
             # utils.logInfo('YetAnotherRibbonSystem calculate score', [{'damage': damage, 'earned_score': earned_score, 'victim_sub_type': victim_sub_type, 'mx_health': self.players_health[victim_id]}])
             self.add_score(earned_score)    
 
@@ -80,6 +84,7 @@ class YARS:
         players_info_collection = battle.getPlayersInfo()
         self.players_health = {}
         self.Score = 0
+        self.Level = 'N'
         for playerId in players_info_collection:
             player_info = players_info_collection[playerId]
             if player_info.teamId == 1:
@@ -109,18 +114,18 @@ class YARS:
     def get_level(self):
         if self.Score < 600.0:
             return 'N'
-        elif self.Score < 1400.0:
-            return 'R'
-        elif self.Score < 2800.0:
-            return 'SR'
-        elif self.Score < 3800.0:
-            return 'SSR'
-        elif self.Score < 5500.0:
-            return 'PRY'
-        elif self.Score < 8000.0:
-            return 'UR'
+        elif self.Score < 1000.0:
+            return 'R' # 600.0
+        elif self.Score < 1800.0:
+            return 'SR' # 1000.0
+        elif self.Score < 2400.0:
+            return 'SSR' # 1800.0
+        elif self.Score < 3000.0:
+            return 'PRY' # 2400.0
+        elif self.Score < 5000.0:
+            return 'UR' # 3000.0
         else:
-            return 'DR'
+            return 'DR' # 5000.0
 
     def register_assets(self):
         for key, value in Ribbon._type_map.items():
