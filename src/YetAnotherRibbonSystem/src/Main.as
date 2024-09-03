@@ -80,30 +80,56 @@ package
 		}
 
         private function registerImage(ribbon_id:int, file_path:String):void {
-            var loader:Loader = new Loader();
-            loader.contentLoaderInfo.addEventListener(Event.COMPLETE, function(event:Event):void {
-                var bitmap:Bitmap = loader.content as Bitmap;
-                if (bitmap && bitmap.bitmapData) {
-                    imageCache[ribbon_id] = bitmap.bitmapData;
-                    gameAPI.data.call("mlog", ["Image loaded for ribbon_id: " + ribbon_id]);
-                } else {
-                    gameAPI.data.call("mlog", ["Failed to load image for ribbon_id: " + ribbon_id]);
-                }
-            });
-            loader.load(new URLRequest(file_path));
+            var maxRetries:int = 3;
+            var retryCount:int = 0;
+
+            function loadImage():void {
+                var loader:Loader = new Loader();
+                loader.contentLoaderInfo.addEventListener(Event.COMPLETE, function(event:Event):void {
+                    var bitmap:Bitmap = loader.content as Bitmap;
+                    if (bitmap && bitmap.bitmapData) {
+                        imageCache[ribbon_id] = bitmap.bitmapData;
+                        gameAPI.data.call("mlog", ["Image loaded for ribbon_id: " + ribbon_id]);
+                    } else {
+                        if (retryCount < maxRetries) {
+                            retryCount++;
+                            gameAPI.data.call("mlog", ["Retrying to load image for ribbon_id: " + ribbon_id + " (Attempt " + retryCount + ")"]);
+                            loadImage();
+                        } else {
+                            gameAPI.data.call("mlog", ["Failed to load image for ribbon_id: " + ribbon_id + " after " + maxRetries + " attempts"]);
+                        }
+                    }
+                });
+                loader.load(new URLRequest(file_path));
+            }
+
+            loadImage();
         }
 
         private function registerLevelImage(level:String, file_path:String):void {
-            var loader:Loader = new Loader();
-            loader.contentLoaderInfo.addEventListener(Event.COMPLETE, function(event:Event):void {
-                var bitmap:Bitmap = loader.content as Bitmap;
-                if (bitmap && bitmap.bitmapData) {
-                    levelImageCache[level] = bitmap.bitmapData;
-                } else {
-                    gameAPI.data.call("mlog", ["Failed to load image for level: " + level]);
-                }
-            });
-            loader.load(new URLRequest(file_path));
+            var maxRetries:int = 3;
+            var retryCount:int = 0;
+
+            function loadImage():void {
+                var loader:Loader = new Loader();
+                loader.contentLoaderInfo.addEventListener(Event.COMPLETE, function(event:Event):void {
+                    var bitmap:Bitmap = loader.content as Bitmap;
+                    if (bitmap && bitmap.bitmapData) {
+                        levelImageCache[level] = bitmap.bitmapData;
+                    } else {
+                        if (retryCount < maxRetries) {
+                            retryCount++;
+                            gameAPI.data.call("mlog", ["Retrying to load image for level: " + level + " (Attempt " + retryCount + ")"]);
+                            loadImage();
+                        } else {
+                            gameAPI.data.call("mlog", ["Failed to load image for level: " + level + " after " + maxRetries + " attempts"]);
+                        }
+                    }
+                });
+                loader.load(new URLRequest(file_path));
+            }
+
+            loadImage();
         }
 
         private function initAnimation(ribbon_id:int, existTime:int, alphaValue:Number = 0.7):void {

@@ -3,7 +3,7 @@ from Ribbon import Ribbon
 
 API_VERSION = 'API_v1.0'
 MOD_NAME = 'YetAnotherRibbonSystem'
-VERSION = '0.2.4'
+VERSION = '0.2.5'
 
 def flash_log(ModName, msg):
     pass
@@ -112,17 +112,17 @@ class YARS:
             flash.call("ShakeLevel", [int(score), 100, 5])
 
     def get_level(self):
-        if self.Score < 600.0:
+        if self.Score < 500.0:
             return 'N'
-        elif self.Score < 1000.0:
+        elif self.Score < 800.0:
             return 'R' # 600.0
-        elif self.Score < 1800.0:
+        elif self.Score < 1500.0:
             return 'SR' # 1000.0
-        elif self.Score < 2400.0:
+        elif self.Score < 2000.0:
             return 'SSR' # 1800.0
-        elif self.Score < 3000.0:
+        elif self.Score < 2600.0:
             return 'PRY' # 2400.0
-        elif self.Score < 5000.0:
+        elif self.Score < 3500.0:
             return 'UR' # 3000.0
         else:
             return 'DR' # 5000.0
