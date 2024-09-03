@@ -9,7 +9,7 @@
 <p align="center">
     <a href="./COPYING"><img src="https://img.shields.io/github/license/AXiX-official/YetAnotherRibbonSystem" alt="liscense: GPL-3.0"></a>
     <a href="https://github.com/AXiX-official/YetAnotherRibbonSystem/releases"><img src="https://img.shields.io/github/v/release/AXiX-official/YetAnotherRibbonSystem"></a>
-    <a href="https://github.com/wgmods/ModSDK"><img src="https://img.shields.io/badge/Game%20Version-13.7.0-blue"></a>
+    <a href="https://github.com/wgmods/ModSDK"><img src="https://img.shields.io/badge/Game%20Version-13.8.0-blue"></a>
 </p>
 
 ---
